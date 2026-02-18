@@ -35,15 +35,15 @@ function render() {
             resultHTML += `<div class="task">
             <div class="task-done">${taskList[i].taskContent}</div>
             <div>
-                <button onclick="toggleComplete('${taskList[i].id}')">check</button>
-                <button onclick="deleteTask(${i})">delete</button>
+                <button onclick="toggleComplete('${taskList[i].id}')"><img src= "image/double-check.png" alt="check"></button>
+                <button onclick="deleteTask('${taskList[i].id}')"><img src= "image/garbage.png" alt="delete"></button>
             </div>
         </div>`
         }else {resultHTML += `<div class="task">
             <div>${taskList[i].taskContent}</div>
             <div>
-                <button onclick="toggleComplete('${taskList[i].id}')">check</button>
-                <button onclick="deleteTask(${i})">delete</button>
+                <button onclick="toggleComplete('${taskList[i].id}')"><img src= "image/double-check.png" alt="check"></button>
+                <button onclick="deleteTask('${taskList[i].id}')"><img src= "image/garbage.png" alt="delete"></button>
             </div>
         </div>`;
         }
@@ -64,14 +64,20 @@ function toggleComplete(id) {
     console.log(taskList);
 }
 
+function deleteTask(id) {
+    for (let i =0; i < taskList.length; i++) {
+        if(taskList[i].id == id) {
+            taskList.splice(i,1);
+            break;
+        }   
+    }
+    render();
+}
 
 function randomIDGenerate() {
     return '_' + Math.random().toString(36).substr(2, 9);
 }
 
-function deleteTask() {
-    console.log("delete")
-}
 // 엔터키로 추가 기능
 taskInput.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
