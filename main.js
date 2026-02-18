@@ -69,10 +69,8 @@ function randomIDGenerate() {
     return '_' + Math.random().toString(36).substr(2, 9);
 }
 
-function deleteTask(index) {
-   taskList.splice(index,1);
-   render();
-   console.log(taskList);
+function deleteTask() {
+    console.log("delete")
 }
 // 엔터키로 추가 기능
 taskInput.addEventListener('keydown', function(event) {
