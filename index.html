@@ -8,8 +8,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- 투명 재생 버튼 (전체 화면 덮기) -->
+    <div id="play-overlay">
+        <div class="play-message">🎵 클릭하여 음악 시작</div>
+    </div>
+
     <div class="container">
-        <h1>To Do List</h1>
+        <h1>바닷속에서 주운 보물들
+        </h1>
+
+        <audio id="bg-music" loop>
+         <source src="music/Ocean-lofi.mp3" type="audio/mpeg">
+        </audio>
+
         <section class="input-area">
             <input type="text" id="task-input"/>
             <button id="add-button">+</button>
@@ -18,13 +29,14 @@
         <section class="task-area">
           <div class="task-tab">
              <div id="under-line"></div>
-               <div>
+               <div id="all">
                   모두
                </div>
-               <div>
+               <div id="ongoing">
                   진행중
                </div>
-               <div>끝남
+               <div id="done">
+                  끝남
                </div>
            </div>
               <div id="task-board">
